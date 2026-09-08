@@ -935,15 +935,15 @@
     @keyframes gate-fade { from { opacity: 0; } to { opacity: 1; } }
 
     .gate-logo {
-      width: 162.5px; height: 162.5px;
+      width: 203px; height: 203px;
       border-radius: 50%;
       object-fit: contain;
-      filter: drop-shadow(0 0 14px rgba(57,224,102,.65));
+      filter: drop-shadow(0 0 18px rgba(57,224,102,.7));
       animation: gate-pulse 3.4s ease-in-out infinite;
     }
     @keyframes gate-pulse {
-      0%,100% { filter: drop-shadow(0 0 12px rgba(57,224,102,.55)); }
-      50%     { filter: drop-shadow(0 0 26px rgba(57,224,102,.9)); }
+      0%,100% { filter: drop-shadow(0 0 15px rgba(57,224,102,.6)); }
+      50%     { filter: drop-shadow(0 0 32px rgba(57,224,102,.95)); }
     }
 
     .gate-brand {
@@ -1034,7 +1034,7 @@
     .gate-foot a { color: var(--verde-neon); text-decoration: none; }
 
     @media (max-width: 600px) {
-      .gate-logo { width: 130px; height: 130px; }
+      .gate-logo { width: 162.5px; height: 162.5px; }
       .gate-brand { font-size: 34px; }
       .gate-title { font-size: 18px; letter-spacing: 2.5px; }
       .gate-btn { font-size: 15px; padding: 16px 18px; }
@@ -1068,8 +1068,8 @@
 
   <!-- ════ HEADER ════ -->
   <header class="header">
-    <div class="header-logo">
-      <a href="https://idaromefit.com" class="logo-svg-wrap" aria-label="IDAROMEFIT — Inicio" title="IDAROMEFIT — Inicio">
+    <div class="header-logo" onclick="irAInicioWeb(event)" style="cursor:pointer;" title="Ir a la página principal (www.idaromefit.com)">
+      <a href="https://www.idaromefit.com" class="logo-svg-wrap" aria-label="IDAROMEFIT — Inicio" title="IDAROMEFIT — Inicio" onclick="irAInicioWeb(event)">
         <img src="https://raw.githubusercontent.com/IDAROMEfit/MULTIMEDIA/refs/heads/main/mancuerna_corazon_salud_fondo_negro.svg" crossorigin="anonymous" alt="IDAROME FIT Logo">
       </a>
       <div>
@@ -3079,7 +3079,71 @@
   }
 
   function volverAtras() {
-    window.location.href = 'https://idaromefit.com';
+    window.location.href = 'https://www.idaromefit.com';
+  }
+
+  function irAInicioWeb(event) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    const overlay = document.createElement('div');
+    overlay.id = 'home-confirm-overlay';
+    overlay.style.cssText = 'position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,.85); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; padding:16px; box-sizing:border-box;';
+    
+    overlay.innerHTML = `
+      <div style="background:var(--gris-oscuro); border:1px solid rgba(57,224,102,.45); border-radius:14px; width:100%; max-width:390px; box-shadow:0 12px 36px rgba(0,0,0,.95), 0 0 24px rgba(57,224,102,.3); padding:26px 22px; box-sizing:border-box; text-align:center; animation:fichaIn .22s cubic-bezier(0.16, 1, 0.3, 1);">
+        <div style="display:flex; justify-content:center; margin-bottom:16px;">
+          <div style="width:56px; height:56px; border-radius:50%; background:rgba(57,224,102,.12); border:1px solid rgba(57,224,102,.5); display:flex; align-items:center; justify-content:center; box-shadow:var(--verde-glow-sm);">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--verde-neon)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9.5L12 3l9 6.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9.5z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </div>
+        </div>
+        <div style="font-family:'Bebas Neue',cursive; font-size:25px; color:var(--verde-neon); letter-spacing:2.5px; text-shadow:var(--verde-glow-sm); margin-bottom:10px; line-height:1.1;">
+          ¿IR A LA PÁGINA PRINCIPAL?
+        </div>
+        <div style="font-family:'Barlow',sans-serif; font-size:14.5px; color:rgba(255,255,255,.85); margin-bottom:22px; line-height:1.5;">
+          ¿Deseas salir de la calculadora e ir a la página principal:<br>
+          <a href="https://www.idaromefit.com" style="color:var(--verde-neon); text-decoration:none; font-weight:700; font-size:15.5px; letter-spacing:.5px; text-shadow:0 0 8px rgba(57,224,102,.4);">www.idaromefit.com</a>?
+        </div>
+        <div style="display:flex; gap:10px; justify-content:center;">
+          <button id="home-cancel-btn" style="flex:1; background:transparent; border:1px solid var(--gris-borde); color:rgba(255,255,255,.8); border-radius:8px; padding:12px 16px; font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; cursor:pointer; transition:all .2s;">
+            Cancelar
+          </button>
+          <button id="home-confirm-btn" style="flex:1; background:var(--verde-neon); border:none; color:var(--negro-base); border-radius:8px; padding:12px 16px; font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; cursor:pointer; box-shadow:var(--verde-glow-sm); transition:all .2s;">
+            Ir al Sitio
+          </button>
+        </div>
+      </div>
+    `;
+    
+    document.body.appendChild(overlay);
+    
+    const closeDialog = () => {
+      if (document.body.contains(overlay)) document.body.removeChild(overlay);
+    };
+    
+    document.getElementById('home-cancel-btn').onclick = closeDialog;
+    overlay.onclick = (e) => { if (e.target === overlay) closeDialog(); };
+    
+    document.getElementById('home-confirm-btn').onclick = () => {
+      closeDialog();
+      window.location.href = 'https://www.idaromefit.com';
+    };
+    
+    const onKey = (e) => {
+      if (e.key === 'Escape') {
+        closeDialog();
+        document.removeEventListener('keydown', onKey);
+      } else if (e.key === 'Enter') {
+        closeDialog();
+        document.removeEventListener('keydown', onKey);
+        window.location.href = 'https://www.idaromefit.com';
+      }
+    };
+    document.addEventListener('keydown', onKey);
   }
 
   // Si el usuario pulsa "atrás" del navegador estando en las calculadoras,
