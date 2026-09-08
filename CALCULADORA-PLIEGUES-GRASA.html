@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IDAROMEFIT — Panel de Composición Corporal</title>
+  <link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/IDAROMEfit/MULTIMEDIA/refs/heads/main/corazon_hoja_icono_fondo_negro.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/IDAROMEfit/MULTIMEDIA/refs/heads/main/corazon_hoja_icono_fondo_negro_32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/IDAROMEfit/MULTIMEDIA/refs/heads/main/corazon_hoja_icono_fondo_negro_180.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;700;800&family=Barlow+Condensed:wght@400;700&display=swap" rel="stylesheet" />
@@ -74,7 +77,9 @@
     }
 
     .header-logo { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
-    .logo-svg-wrap { width: 53.75px; height: 53.75px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; filter: drop-shadow(0 0 8px rgba(57,224,102,.6)); }
+    .logo-svg-wrap { height: 44px; width: auto; max-width: 110px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; text-decoration: none; cursor: pointer; transition: filter 0.3s cubic-bezier(0.25, 1, 0.5, 1), transform 0.3s cubic-bezier(0.25, 1, 0.5, 1); filter: drop-shadow(0 0 4px rgba(57,224,102,0.9)) drop-shadow(0 0 8px rgba(57,224,102,0.6)); }
+    .logo-svg-wrap:hover { filter: drop-shadow(0 0 6px rgba(57,224,102,1)) drop-shadow(0 0 14px rgba(57,224,102,0.8)); transform: scale(1.03); }
+    .logo-svg-wrap img { height: 100%; width: auto; object-fit: contain; display: block; }
     .logo-text { font-family: 'Bebas Neue', cursive; font-size: 25px; letter-spacing: 3px; color: var(--verde-neon); text-shadow: var(--verde-glow-sm); line-height: 1; }
     .logo-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 4px; color: var(--ambar-puro); text-transform: uppercase; text-shadow: var(--ambar-glow-sm); line-height: 1; margin-top: 1px; }
 
@@ -624,7 +629,7 @@
         justify-content: center; align-items: center;
       }
       .header-logo { order: 1; flex: 0 0 100%; width: 100%; justify-content: center; min-width: 0; gap: 13px; }
-      .header-logo .logo-svg-wrap { width: 42px; height: 42px; }
+      .header-logo .logo-svg-wrap { height: 38px; width: auto; max-width: 95px; }
       .header-logo .logo-text { font-size: 21px; letter-spacing: 2px; white-space: nowrap; }
       .header-logo .logo-sub { font-size: 10px; letter-spacing: 2px; }
       .header-actions { order: 2; flex: 0 0 100%; width: 100%; justify-content: center; flex-wrap: nowrap; margin-left: 0; margin-right: 0; }
@@ -660,7 +665,7 @@
         align-items: center;
       }
       .header-logo { order: 1; flex: 0 0 100%; width: 100%; justify-content: center; min-width: 0; gap: 13px; }
-      .header-logo .logo-svg-wrap { width: 42px; height: 42px; }
+      .header-logo .logo-svg-wrap { height: 38px; width: auto; max-width: 95px; }
       .header-logo .logo-text { font-size: 21px; letter-spacing: 2px; white-space: nowrap; }
       .header-logo .logo-sub { font-size: 10px; letter-spacing: 2px; }
       .header-actions { order: 2; flex: 0 0 100%; width: 100%; justify-content: center; flex-wrap: nowrap; margin-left: 0; margin-right: 0; }
@@ -719,7 +724,7 @@
     @media (max-width: 480px) {
       .input-grid { grid-template-columns: 1fr; }
       .header-logo .logo-text { font-size: 18px; }
-      .header-logo .logo-svg-wrap { width: 36px; height: 36px; }
+      .header-logo .logo-svg-wrap { height: 32px; width: auto; max-width: 80px; }
       .header-logo { gap: 9px; }
       .header-actions { gap: 4px; }
       #btn-pdf { padding: 0 8px !important; letter-spacing: 1px !important; font-size: 10px !important; height: 35px !important; }
@@ -1064,9 +1069,9 @@
   <!-- ════ HEADER ════ -->
   <header class="header">
     <div class="header-logo">
-      <div class="logo-svg-wrap">
-        <img src="https://raw.githubusercontent.com/IDAROMEfit/MULTIMEDIA/refs/heads/main/idarome_fit_circular.svg" crossorigin="anonymous" alt="IDAROME FIT Logo" style="width:100%;height:100%;object-fit:contain;border-radius:50%;filter:drop-shadow(0 0 8px rgba(57,224,102,.6));">
-      </div>
+      <a href="https://idaromefit.com" class="logo-svg-wrap" aria-label="IDAROMEFIT — Inicio" title="IDAROMEFIT — Inicio">
+        <img src="https://raw.githubusercontent.com/IDAROMEfit/MULTIMEDIA/refs/heads/main/mancuerna_corazon_salud_fondo_negro.svg" crossorigin="anonymous" alt="IDAROME FIT Logo">
+      </a>
       <div>
         <div class="logo-text"><span style="color:var(--verde-neon);text-shadow:var(--verde-glow-sm);">IDAROME</span><span style="color:var(--verde-neon);text-shadow:var(--verde-glow-sm);font-style:italic;"> FIT</span></div>
         <div class="logo-sub">Composición Corporal</div>
