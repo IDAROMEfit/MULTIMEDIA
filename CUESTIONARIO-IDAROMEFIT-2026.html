@@ -621,22 +621,10 @@ input.invalid,select.invalid{
         </div>
       </div>
 
-      <div class="grid-3">
-        <div class="field">
-          <label for="dia" data-i18n="lbl_dia">Día <span class="req">*</span></label>
-          <select id="dia" name="dia" required aria-required="true" aria-label="Día de nacimiento"></select>
-          <small class="error" data-for="dia"></small>
-        </div>
-        <div class="field">
-          <label for="mes" data-i18n="lbl_mes">Mes <span class="req">*</span></label>
-          <select id="mes" name="mes" required aria-required="true" aria-label="Mes de nacimiento"></select>
-          <small class="error" data-for="mes"></small>
-        </div>
-        <div class="field">
-          <label for="anio" data-i18n="lbl_anio">Año <span class="req">*</span></label>
-          <select id="anio" name="anio" required aria-required="true" aria-label="Año de nacimiento"></select>
-          <small class="error" data-for="anio"></small>
-        </div>
+      <div class="field">
+        <label for="edad" data-i18n="lbl_edad">Edad <span class="req">*</span></label>
+        <select id="edad" name="edad" required aria-required="true" aria-label="Edad"></select>
+        <small class="error" data-for="edad"></small>
       </div>
 
       <div class="field">
@@ -664,16 +652,16 @@ input.invalid,select.invalid{
       <p class="step-desc" data-i18n="s2_desc">Indica cuál es tu objetivo (puedes seleccionar varias opciones). <span class="req">*</span></p>
 
       <div class="check-grid" role="group" aria-label="Objetivos">
-        <label class="check-card"><input type="checkbox" name="objetivos" value="Mantener el peso"><span data-i18n="obj_1">Mantener el peso</span></label>
-        <label class="check-card"><input type="checkbox" name="objetivos" value="Bajar de peso"><span data-i18n="obj_2">Bajar de peso</span></label>
-        <label class="check-card"><input type="checkbox" name="objetivos" value="Aumentar peso"><span data-i18n="obj_3">Aumentar peso</span></label>
-        <label class="check-card"><input type="checkbox" name="objetivos" value="Disminuir grasa corporal"><span data-i18n="obj_4">Disminuir grasa corporal</span></label>
-        <label class="check-card"><input type="checkbox" name="objetivos" value="Aumentar masa muscular"><span data-i18n="obj_5">Aumentar masa muscular</span></label>
-        <label class="check-card"><input type="checkbox" name="objetivos" value="Ayuda nutricional con alguna enfermedad"><span data-i18n="obj_6">Ayuda nutricional con alguna enfermedad que padezco</span></label>
-        <label class="check-card"><input type="checkbox" name="objetivos" value="Aprender a comer de forma saludable"><span data-i18n="obj_7">Aprender a comer de forma saludable</span></label>
-        <label class="check-card"><input type="checkbox" name="objetivos" value="Solucionar dolor lumbar"><span data-i18n="obj_8">Solucionar dolor lumbar</span></label>
-        <label class="check-card"><input type="checkbox" name="objetivos" value="Recuperarme de una lesión"><span data-i18n="obj_9">Recuperarme de una lesión</span></label>
-        <label class="check-card"><input type="checkbox" name="objetivos" value="Aprender a entrenar"><span data-i18n="obj_10">Aprender a entrenar</span></label>
+        <label class="check-card"><input type="checkbox" name="objetivos" value="Solucionar el dolor lumbar"><span data-i18n="obj_1">Solucionar el dolor lumbar</span></label>
+        <label class="check-card"><input type="checkbox" name="objetivos" value="Recuperarme de una lesión"><span data-i18n="obj_2">Recuperarme de una lesión</span></label>
+        <label class="check-card"><input type="checkbox" name="objetivos" value="Aprender a entrenar"><span data-i18n="obj_3">Aprender a entrenar</span></label>
+        <label class="check-card"><input type="checkbox" name="objetivos" value="Mantener peso"><span data-i18n="obj_4">Mantener peso</span></label>
+        <label class="check-card"><input type="checkbox" name="objetivos" value="Bajar peso"><span data-i18n="obj_5">Bajar peso</span></label>
+        <label class="check-card"><input type="checkbox" name="objetivos" value="Aumentar peso"><span data-i18n="obj_6">Aumentar peso</span></label>
+        <label class="check-card"><input type="checkbox" name="objetivos" value="Disminuir grasa corporal"><span data-i18n="obj_7">Disminuir grasa corporal</span></label>
+        <label class="check-card"><input type="checkbox" name="objetivos" value="Aumentar masa muscular"><span data-i18n="obj_8">Aumentar masa muscular</span></label>
+        <label class="check-card"><input type="checkbox" name="objetivos" value="Ayuda nutricional con alguna enfermedad que padezco"><span data-i18n="obj_9">Ayuda nutricional con alguna enfermedad que padezco</span></label>
+        <label class="check-card"><input type="checkbox" name="objetivos" value="Aprender a comer de forma saludable"><span data-i18n="obj_10">Aprender a comer de forma saludable</span></label>
       </div>
       <small class="error" data-for="objetivos"></small>
 
@@ -689,17 +677,17 @@ input.invalid,select.invalid{
       <p class="step-desc" data-i18n="s3_desc">Hablemos de tu relación con el ejercicio.</p>
 
       <div class="field">
-        <span class="field-label" data-i18n="lbl_practica">¿Practicas deporte? <span class="req">*</span></span>
+        <span class="field-label" data-i18n="lbl_deporte">¿Practicas deporte? <span class="req">*</span></span>
         <div class="choice-row" role="radiogroup" aria-label="¿Practicas deporte?">
-          <label class="chip"><input type="radio" name="practica" value="Sí"><span data-i18n="opt_si">Sí</span></label>
-          <label class="chip"><input type="radio" name="practica" value="No"><span data-i18n="opt_no">No</span></label>
+          <label class="chip"><input type="radio" name="deporte" value="Sí"><span data-i18n="opt_si">Sí</span></label>
+          <label class="chip"><input type="radio" name="deporte" value="No"><span data-i18n="opt_no">No</span></label>
         </div>
-        <small class="error" data-for="practica"></small>
+        <small class="error" data-for="deporte"></small>
       </div>
 
       <div class="field">
-        <label for="tiempo" data-i18n="lbl_tiempo">Si practicas deporte, ¿desde hace cuánto tiempo?</label>
-        <input type="text" id="tiempo" name="tiempo" placeholder="Ej: 2 años, 6 meses..." data-i18n-ph="ph_tiempo">
+        <label for="durante" data-i18n="lbl_durante">Si practicas deporte, ¿durante cuánto tiempo?</label>
+        <input type="text" id="durante" name="durante" placeholder="Ej: 2 años, 6 meses..." data-i18n-ph="ph_durante">
       </div>
 
       <div class="field">
@@ -719,25 +707,13 @@ input.invalid,select.invalid{
       <p class="step-desc" data-i18n="s4_desc">Solo un par de detalles más para conocerte.</p>
 
       <div class="field">
-        <span class="field-label" data-i18n="lbl_servicio">¿Estás interesado en un servicio Online o Presencial? <span class="req">*</span></span>
-        <div class="choice-row wrap" role="radiogroup" aria-label="Tipo de servicio">
-          <label class="chip"><input type="radio" name="servicio" value="Online"><span data-i18n="opt_online">Online</span></label>
-          <label class="chip"><input type="radio" name="servicio" value="Presencial"><span data-i18n="opt_presencial">Presencial</span></label>
-          <label class="chip"><input type="radio" name="servicio" value="Todavía no lo sé"><span data-i18n="opt_nolose">No lo sé</span></label>
+        <span class="field-label" data-i18n="lbl_programa">¿Estás interesado en un programa Online o Presencial? <span class="req">*</span></span>
+        <div class="choice-row wrap" role="radiogroup" aria-label="Tipo de programa">
+          <label class="chip"><input type="radio" name="programa" value="Online"><span data-i18n="opt_online">Online</span></label>
+          <label class="chip"><input type="radio" name="programa" value="Presencial"><span data-i18n="opt_presencial">Presencial</span></label>
+          <label class="chip"><input type="radio" name="programa" value="Todavía no lo sé"><span data-i18n="opt_nolose">No lo sé</span></label>
         </div>
-        <small class="error" data-for="servicio"></small>
-      </div>
-
-      <div class="field">
-        <span class="field-label" data-i18n="lbl_ganas">Califica tus ganas de comenzar <span class="req">*</span></span>
-        <div class="rating" role="radiogroup" aria-label="Ganas de comenzar del 1 al 5">
-          <label class="rate"><input type="radio" name="ganas" value="1"><span>1</span></label>
-          <label class="rate"><input type="radio" name="ganas" value="2"><span>2</span></label>
-          <label class="rate"><input type="radio" name="ganas" value="3"><span>3</span></label>
-          <label class="rate"><input type="radio" name="ganas" value="4"><span>4</span></label>
-          <label class="rate"><input type="radio" name="ganas" value="5"><span>5</span></label>
-        </div>
-        <small class="error" data-for="ganas"></small>
+        <small class="error" data-for="programa"></small>
       </div>
 
       <!-- Honeypot anti-spam (oculto) -->
@@ -797,38 +773,33 @@ input.invalid,select.invalid{
 
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* ---------- Etiquetas de los placeholders de fecha por idioma ---------- */
-  var DATE_LABELS = {
-    es: { dia:'Día', mes:'Mes', anio:'Año',
-          meses:['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'] },
-    en: { dia:'Day', mes:'Month', anio:'Year',
-          meses:['January','February','March','April','May','June','July','August','September','October','November','December'] }
-  };
+  var edadSel = document.getElementById('edad');
 
-  var diaSel  = document.getElementById('dia');
-  var mesSel   = document.getElementById('mes');
-  var anioSel  = document.getElementById('anio');
+  /* ---------- Rellenar select de edad (de 14 a 99 años) ---------- */
+  function fillAge(lang) {
+    if (!edadSel) return;
+    var currentVal = edadSel.value;
+    edadSel.innerHTML = '';
 
-  /* ---------- Rellenar selects de fecha ---------- */
-  (function fillDates() {
-    addOpt(diaSel, '', DATE_LABELS.es.dia, true);
-    for (var d = 1; d <= 31; d++) addOpt(diaSel, d, d);
+    var placeholder = document.createElement('option');
+    placeholder.value = '';
+    placeholder.disabled = true;
+    placeholder.selected = !currentVal;
+    placeholder.textContent = lang === 'en' ? 'Select your age' : 'Selecciona tu edad';
+    placeholder.setAttribute('data-ph', '1');
+    edadSel.appendChild(placeholder);
 
-    addOpt(mesSel, '', DATE_LABELS.es.mes, true);
-    DATE_LABELS.es.meses.forEach(function (m, i) { addOpt(mesSel, i + 1, m); });
-
-    addOpt(anioSel, '', DATE_LABELS.es.anio, true);
-    var y = new Date().getFullYear();
-    for (var a = y - 14; a >= y - 90; a--) addOpt(anioSel, a, a);
-
-    function addOpt(sel, val, txt, isPlaceholder) {
-      var o = document.createElement('option');
-      o.value = val; o.textContent = txt;
-      if (val === '') { o.disabled = true; o.selected = true; }
-      if (isPlaceholder) o.setAttribute('data-ph', '1');
-      sel.appendChild(o);
+    for (var a = 14; a <= 99; a++) {
+      var opt = document.createElement('option');
+      opt.value = a;
+      opt.textContent = a + (lang === 'en' ? ' years old' : ' años');
+      if (currentVal && String(currentVal) === String(a)) {
+        opt.selected = true;
+      }
+      edadSel.appendChild(opt);
     }
-  })();
+  }
+  fillAge('es');
 
   /* ---------- Rellenar select de prefijos de país ----------
      Orden: España, Estados Unidos, Reino Unido y luego el resto
@@ -980,43 +951,41 @@ input.invalid,select.invalid{
       lbl_prefijo: 'Prefijo del país',
       lbl_telefono: 'Número de teléfono',
       ph_telefono: '600 000 000',
-      lbl_dia: 'Día <span class="req">*</span>',
-      lbl_mes: 'Mes <span class="req">*</span>',
-      lbl_anio: 'Año <span class="req">*</span>',
+      lbl_edad: 'Edad <span class="req">*</span>',
+      opt_sel_edad: 'Selecciona tu edad',
       lbl_sexo: 'Sexo <span class="req">*</span>',
       opt_hombre: 'Hombre',
       opt_mujer: 'Mujer',
       /* Paso 2 */
       s2_title: 'Tus objetivos',
       s2_desc: 'Indica cuál es tu objetivo (puedes seleccionar varias opciones). <span class="req">*</span>',
-      obj_1: 'Mantener el peso',
-      obj_2: 'Bajar de peso',
-      obj_3: 'Aumentar peso',
-      obj_4: 'Disminuir grasa corporal',
-      obj_5: 'Aumentar masa muscular',
-      obj_6: 'Ayuda nutricional con alguna enfermedad que padezco',
-      obj_7: 'Aprender a comer de forma saludable',
-      obj_8: 'Solucionar dolor lumbar',
-      obj_9: 'Recuperarme de una lesión',
-      obj_10: 'Aprender a entrenar',
+      obj_1: 'Solucionar el dolor lumbar',
+      obj_2: 'Recuperarme de una lesión',
+      obj_3: 'Aprender a entrenar',
+      obj_4: 'Mantener peso',
+      obj_5: 'Bajar peso',
+      obj_6: 'Aumentar peso',
+      obj_7: 'Disminuir grasa corporal',
+      obj_8: 'Aumentar masa muscular',
+      obj_9: 'Ayuda nutricional con alguna enfermedad que padezco',
+      obj_10: 'Aprender a comer de forma saludable',
       /* Paso 3 */
       s3_title: 'Deporte y actividad',
       s3_desc: 'Hablemos de tu relación con el ejercicio.',
-      lbl_practica: '¿Practicas deporte? <span class="req">*</span>',
+      lbl_deporte: '¿Practicas deporte? <span class="req">*</span>',
       opt_si: 'Sí',
       opt_no: 'No',
-      lbl_tiempo: 'Si practicas deporte, ¿desde hace cuánto tiempo?',
-      ph_tiempo: 'Ej: 2 años, 6 meses...',
+      lbl_durante: 'Si practicas deporte, ¿durante cuánto tiempo?',
+      ph_durante: 'Ej: 2 años, 6 meses...',
       lbl_actividad: '¿Qué deporte o actividad física realizas?',
       ph_actividad: 'Ej: gimnasio, running, fútbol...',
       /* Paso 4 */
       s4_title: 'Ya casi lo tenemos',
       s4_desc: 'Solo un par de detalles más para conocerte.',
-      lbl_servicio: '¿Estás interesado en un servicio Online o Presencial? <span class="req">*</span>',
+      lbl_programa: '¿Estás interesado en un programa Online o Presencial? <span class="req">*</span>',
       opt_online: 'Online',
       opt_presencial: 'Presencial',
       opt_nolose: 'No lo sé',
-      lbl_ganas: 'Califica tus ganas de comenzar <span class="req">*</span>',
       /* Botones */
       btn_seguir: 'Seguir',
       btn_atras: 'Atrás',
@@ -1034,8 +1003,7 @@ input.invalid,select.invalid{
       err_email: 'Introduce un email válido',
       err_tel: 'Introduce un teléfono válido',
       err_choose: 'Selecciona una opción',
-      err_objetivos: 'Selecciona al menos un objetivo',
-      err_ganas: 'Indica tus ganas de comenzar'
+      err_objetivos: 'Selecciona al menos un objetivo'
     },
     en: {
       head_tag: '⬇ Let’s talk ⬇',
@@ -1051,43 +1019,41 @@ input.invalid,select.invalid{
       lbl_prefijo: 'Country code',
       lbl_telefono: 'Phone number',
       ph_telefono: '600 000 000',
-      lbl_dia: 'Day <span class="req">*</span>',
-      lbl_mes: 'Month <span class="req">*</span>',
-      lbl_anio: 'Year <span class="req">*</span>',
+      lbl_edad: 'Age <span class="req">*</span>',
+      opt_sel_edad: 'Select your age',
       lbl_sexo: 'Gender <span class="req">*</span>',
       opt_hombre: 'Male',
       opt_mujer: 'Female',
       /* Step 2 */
       s2_title: 'Your goals',
       s2_desc: 'Tell me what your goal is (you can select more than one option). <span class="req">*</span>',
-      obj_1: 'Maintain weight',
-      obj_2: 'Lose weight',
-      obj_3: 'Gain weight',
-      obj_4: 'Reduce body fat',
-      obj_5: 'Build muscle mass',
-      obj_6: 'Nutritional help with a condition I have',
-      obj_7: 'Learn to eat healthily',
-      obj_8: 'Relieve lower back pain',
-      obj_9: 'Recover from an injury',
-      obj_10: 'Learn how to train',
+      obj_1: 'Relieve lower back pain',
+      obj_2: 'Recover from an injury',
+      obj_3: 'Learn how to train properly',
+      obj_4: 'Maintain weight',
+      obj_5: 'Lose weight',
+      obj_6: 'Gain weight',
+      obj_7: 'Reduce body fat',
+      obj_8: 'Build muscle mass',
+      obj_9: 'Nutritional help with a condition I have',
+      obj_10: 'Learn how to eat healthy',
       /* Step 3 */
       s3_title: 'Sport & activity',
       s3_desc: 'Let’s talk about your relationship with exercise.',
-      lbl_practica: 'Do you do any sport? <span class="req">*</span>',
+      lbl_deporte: 'Do you do any sport? <span class="req">*</span>',
       opt_si: 'Yes',
       opt_no: 'No',
-      lbl_tiempo: 'If you do sport, for how long have you been doing it?',
-      ph_tiempo: 'E.g. 2 years, 6 months...',
+      lbl_durante: 'If you do sport, for how long have you been doing it?',
+      ph_durante: 'E.g. 2 years, 6 months...',
       lbl_actividad: 'What sport or physical activity do you do?',
       ph_actividad: 'E.g. gym, running, football...',
       /* Step 4 */
       s4_title: 'We’re almost there',
       s4_desc: 'Just a couple more details to get to know you.',
-      lbl_servicio: 'Are you interested in an Online or In-person service? <span class="req">*</span>',
+      lbl_programa: 'Are you interested in an Online or In-person program? <span class="req">*</span>',
       opt_online: 'Online',
       opt_presencial: 'In person',
       opt_nolose: 'Not sure yet',
-      lbl_ganas: 'How motivated are you to get started? <span class="req">*</span>',
       /* Buttons */
       btn_seguir: 'Next',
       btn_atras: 'Back',
@@ -1105,8 +1071,7 @@ input.invalid,select.invalid{
       err_email: 'Enter a valid email',
       err_tel: 'Enter a valid phone number',
       err_choose: 'Select an option',
-      err_objetivos: 'Select at least one goal',
-      err_ganas: 'Indicate how eager you are to start'
+      err_objetivos: 'Select at least one goal'
     }
   };
 
@@ -1154,8 +1119,8 @@ input.invalid,select.invalid{
       if (src) logo.src = src;
     }
 
-    // Selects de fecha: actualizar etiquetas (placeholder y meses)
-    updateDateLabels(lang);
+    // Select de edad: actualizar etiquetas según idioma
+    fillAge(lang);
 
     // Select de prefijos: reordenar y reetiquetar
     populatePrefixes(lang);
@@ -1171,22 +1136,7 @@ input.invalid,select.invalid{
     });
   }
 
-  function updateDateLabels(lang) {
-    var L = DATE_LABELS[lang] || DATE_LABELS.es;
-    // Placeholder de cada select de fecha
-    var phDia  = diaSel.querySelector('option[data-ph]');
-    var phMes  = mesSel.querySelector('option[data-ph]');
-    var phAnio = anioSel.querySelector('option[data-ph]');
-    if (phDia)  phDia.textContent  = L.dia;
-    if (phMes)  phMes.textContent  = L.mes;
-    if (phAnio) phAnio.textContent = L.anio;
-    // Nombres de los meses (las opciones con value 1..12)
-    var monthOpts = mesSel.querySelectorAll('option:not([data-ph])');
-    monthOpts.forEach(function (op) {
-      var idx = parseInt(op.value, 10);
-      if (idx >= 1 && idx <= 12) op.textContent = L.meses[idx - 1];
-    });
-  }
+
 
   // Listeners de los botones de idioma
   document.querySelectorAll('.lang-btn').forEach(function (btn) {
@@ -1253,12 +1203,8 @@ input.invalid,select.invalid{
         showError(stepEl, 'sexo', t('err_choose'));
         ok = false;
       }
-      var dia = stepEl.querySelector('#dia');
-      var mes = stepEl.querySelector('#mes');
-      var anio = stepEl.querySelector('#anio');
-      if (dia && !dia.value) { fail(dia, t('err_required')); ok = false; }
-      if (mes && !mes.value) { fail(mes, t('err_required')); ok = false; }
-      if (anio && !anio.value) { fail(anio, t('err_required')); ok = false; }
+      var edad = stepEl.querySelector('#edad');
+      if (edad && !edad.value) { fail(edad, t('err_required')); ok = false; }
     }
     if (stepEl.dataset.step === '2') {
       if (!stepEl.querySelector('input[name=objetivos]:checked')) {
@@ -1267,18 +1213,14 @@ input.invalid,select.invalid{
       }
     }
     if (stepEl.dataset.step === '3') {
-      if (radioGroups.practica === false) {
-        showError(stepEl, 'practica', t('err_choose'));
+      if (radioGroups.deporte === false) {
+        showError(stepEl, 'deporte', t('err_choose'));
         ok = false;
       }
     }
     if (stepEl.dataset.step === '4') {
-      if (radioGroups.servicio === false) {
-        showError(stepEl, 'servicio', t('err_choose'));
-        ok = false;
-      }
-      if (radioGroups.ganas === false) {
-        showError(stepEl, 'ganas', t('err_ganas'));
+      if (radioGroups.programa === false) {
+        showError(stepEl, 'programa', t('err_choose'));
         ok = false;
       }
     }
@@ -1339,17 +1281,37 @@ input.invalid,select.invalid{
 
     submitBtn.classList.add('is-loading');
 
-    var data = new FormData(form);
-    // Convertir objetivos múltiples a una sola cadena legible
-    var objetivos = data.getAll('objetivos').join(', ');
-    data.delete('objetivos');
+    var raw = new FormData(form);
+    var data = new FormData();
+
+    // 1. Datos personales
+    data.append('Nombre', raw.get('nombre') || '');
+    data.append('Apellidos', raw.get('apellidos') || '');
+    data.append('Email', raw.get('email') || '');
+    var prefijo = raw.get('prefijo') || '';
+    var telefono = raw.get('telefono') || '';
+    data.append('Teléfono', prefijo ? prefijo + ' ' + telefono : telefono);
+    var edadVal = raw.get('edad') || '';
+    data.append('Edad', edadVal ? edadVal + ' años' : '');
+    data.append('Sexo', raw.get('sexo') || '');
+
+    // 2. Objetivos
+    var objetivos = raw.getAll('objetivos').join(', ');
     data.append('Objetivos', objetivos);
 
+    // 3. Deporte (antes practica y tiempo)
+    data.append('Deporte', raw.get('deporte') || '');
+    data.append('Durante', raw.get('durante') || '');
+    data.append('Actividad', raw.get('actividad') || '');
+
+    // 4. Programa (antes servicio)
+    data.append('Programa', raw.get('programa') || '');
+
     // Campos de configuración para FormSubmit
-    data.append('_subject', 'Nuevo contacto IDAROME FIT - ' + (data.get('nombre') || ''));
+    data.append('_subject', 'Nuevo contacto IDAROME FIT - ' + (raw.get('nombre') || ''));
     data.append('_template', 'table');
     data.append('_captcha', 'false');
-    data.append('_next', window.location.href);
+    data.append('_next', 'https://www.idaromefit.com/form');
 
     // Intento 1: AJAX (requiere activación previa de FormSubmit)
     fetch(ENDPOINT, {
@@ -1395,7 +1357,7 @@ input.invalid,select.invalid{
     var nextInput = document.createElement('input');
     nextInput.type = 'hidden';
     nextInput.name = '_next';
-    nextInput.value = 'https://idaromefit.com';
+    nextInput.value = 'https://www.idaromefit.com/form';
     nativeForm.appendChild(nextInput);
 
     document.body.appendChild(nativeForm);
