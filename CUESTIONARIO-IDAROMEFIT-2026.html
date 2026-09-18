@@ -407,10 +407,10 @@ input.invalid,select.invalid{
 .calendly-box{
   margin-top:20px;
   border-radius:12px;
-  overflow:hidden;
   border:1px solid rgba(57,224,102,.3);
   background:#000000;
   box-shadow:0 8px 30px rgba(0,0,0,.7);
+  -webkit-overflow-scrolling:touch;
 }
 .calendly-top-bar{
   padding:14px 18px;
@@ -418,20 +418,21 @@ input.invalid,select.invalid{
   border-bottom:1px solid rgba(57,224,102,.2);
   display:flex;
   align-items:center;
+  justify-content:space-between;
   gap:10px;
+  flex-wrap:wrap;
 }
 #calendlyIframe, .calendly-inline-widget{
   display:block;
   width:100% !important;
   border:none !important;
-  min-height:980px !important;
-  height:980px;
-  overflow:hidden;
+  min-height:750px;
+  height:750px;
 }
-@media (min-width:768px){
+@media (max-width:768px){
   #calendlyIframe, .calendly-inline-widget{
-    min-height:750px !important;
-    height:750px;
+    min-height:850px;
+    height:850px;
   }
 }
 
@@ -895,10 +896,13 @@ input.invalid,select.invalid{
       <!-- Contenedor interactivo de Calendly (visible por defecto) -->
       <div id="calendlyContainer" class="calendly-box">
         <div class="calendly-top-bar">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--verde)" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          <span style="font-size:14px; font-weight:600; color:var(--verde); letter-spacing:.3px;" data-i18n="calendly_tip">Elige el día y la hora que mejor te vengan:</span>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--verde)" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span style="font-size:14px; font-weight:600; color:var(--verde); letter-spacing:.3px;" data-i18n="calendly_tip">Elige el día y la hora que mejor te vengan:</span>
+          </div>
+          <a id="calendlyDirectLink" href="https://calendly.com/idaromenutricion/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=000000&text_color=ffffff&primary_color=39e066" target="_blank" rel="noopener" style="font-size:13px; color:#ffffff; opacity:.85; text-decoration:underline; font-weight:500;" data-i18n="calendly_open_tab">Abrir a pantalla completa ↗</a>
         </div>
-        <iframe id="calendlyIframe" src="" width="100%" height="980" frameborder="0" scrolling="no" title="Calendly - IDAROME FIT"></iframe>
+        <iframe id="calendlyIframe" src="" width="100%" height="850" frameborder="0" style="display:block; width:100%; border:none;" title="Calendly - IDAROME FIT"></iframe>
       </div>
 
       <!-- Opción de volver a la web también accesible al pie de Calendly -->
@@ -1197,6 +1201,7 @@ input.invalid,select.invalid{
       opt_agendar_si: 'Sí, agendar ahora',
       opt_agendar_no: 'Por ahora no',
       calendly_tip: 'Elige el día y la hora que mejor te vengan:',
+      calendly_open_tab: 'Abrir a pantalla completa ↗',
       cal_booked_title: '¡Cita confirmada en el calendario!',
       cal_booked_desc: 'Tu videollamada de valoración de 30 minutos ha quedado reservada con éxito. ¡Nos vemos pronto!',
       cal_opt_no_msg: '¡Perfecto! Nos pondremos en contacto contigo muy pronto por teléfono o WhatsApp para coordinar tu valoración.',
@@ -1277,6 +1282,7 @@ input.invalid,select.invalid{
       opt_agendar_si: 'Yes, schedule now',
       opt_agendar_no: 'Not now',
       calendly_tip: 'Select the date and time that suits you best:',
+      calendly_open_tab: 'Open full screen ↗',
       cal_booked_title: 'Appointment confirmed on the calendar!',
       cal_booked_desc: 'Your 30-minute consultation call is confirmed. You will receive an email with the video conference details. Speak soon!',
       cal_opt_no_msg: 'All set! We will contact you shortly via phone or WhatsApp to coordinate your consultation.',
@@ -1555,6 +1561,8 @@ input.invalid,select.invalid{
       calIframe.src = baseUrl;
       calIframe.setAttribute('data-loaded-src', baseUrl);
     }
+    var directLink = document.getElementById('calendlyDirectLink');
+    if (directLink) directLink.href = baseUrl;
   }
 
   function handleAgendarChange() {
