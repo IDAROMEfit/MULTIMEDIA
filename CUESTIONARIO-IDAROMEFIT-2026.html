@@ -13,6 +13,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 <style>
 /* ============================================================
@@ -256,6 +258,27 @@ input.invalid,select.invalid{
   height: 100%;
 }
 
+/* Fila de chips para agendar llamada (adaptable en 1 o 2 columnas) */
+.choice-row.agendar-chips{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.choice-row.agendar-chips .chip{
+  flex: 1 1 240px;
+  min-width: 200px;
+}
+
+@keyframes pulseHighlight {
+  0% { box-shadow: 0 0 0 0 rgba(57,224,102,.7); transform: scale(1); }
+  50% { box-shadow: 0 0 25px 6px rgba(57,224,102,.9); transform: scale(1.02); }
+  100% { box-shadow: 0 0 0 0 rgba(57,224,102,.7); transform: scale(1); }
+}
+.pulse-highlight {
+  animation: pulseHighlight 1.4s ease infinite;
+}
+
+
 /* -- Tarjetas de checkbox (objetivos) -- */
 .check-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
 .check-card{ position:relative; cursor:pointer; }
@@ -346,6 +369,128 @@ input.invalid,select.invalid{
 /* Honeypot */
 .honeypot{ position:absolute !important; left:-9999px !important; width:1px; height:1px; opacity:0; }
 
+/* Banner de datos registrados en Paso 4 */
+.success-registered-banner{
+  background:linear-gradient(135deg, rgba(57,224,102,.16) 0%, rgba(10,32,16,.94) 100%);
+  border:1.5px solid var(--verde);
+  border-radius:12px;
+  padding:18px 20px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  box-shadow:0 6px 24px rgba(0,0,0,.6), 0 0 24px rgba(57,224,102,.12);
+  animation:scheduledSlideUp .4s ease both;
+  margin-bottom:20px;
+}
+.reg-check-icon{
+  flex:0 0 40px; width:40px; height:40px; border-radius:50%;
+  background:rgba(57,224,102,.2); border:1.5px solid var(--verde);
+  display:flex; align-items:center; justify-content:center;
+}
+.reg-banner-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:22px; font-weight:800; color:var(--verde);
+  letter-spacing:.5px; text-transform:uppercase; margin-bottom:4px; line-height:1.2;
+}
+.reg-banner-desc{
+  font-size:14px; color:#ffffff; line-height:1.45; margin:0;
+}
+
+/* Tip previo al agendar en Calendly */
+.calendly-pre-tip{
+  font-size:13.5px; color:#88e39f; margin-top:12px; text-align:center;
+  background:rgba(57,224,102,.07); border:1px dashed rgba(57,224,102,.25);
+  border-radius:8px; padding:10px 14px;
+}
+
+/* -- Calendly Seamless Container -- */
+.calendly-box{
+  margin-top:20px;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid rgba(57,224,102,.3);
+  background:#000000;
+  box-shadow:0 8px 30px rgba(0,0,0,.7);
+}
+.calendly-top-bar{
+  padding:14px 18px;
+  background:rgba(57,224,102,.08);
+  border-bottom:1px solid rgba(57,224,102,.2);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+#calendlyIframe, .calendly-inline-widget{
+  display:block;
+  width:100% !important;
+  border:none !important;
+  min-height:980px !important;
+  height:980px;
+  overflow:hidden;
+}
+@media (min-width:768px){
+  #calendlyIframe, .calendly-inline-widget{
+    min-height:750px !important;
+    height:750px;
+  }
+}
+
+/* Alerta post-reserva de Calendly */
+.calendly-scheduled-alert{
+  margin-top:22px;
+  background:linear-gradient(135deg, rgba(57,224,102,.2) 0%, rgba(10,30,16,.95) 100%);
+  border:2px solid var(--verde);
+  border-radius:12px;
+  padding:20px 22px;
+  box-shadow:0 0 32px rgba(57,224,102,.35), 0 8px 24px rgba(0,0,0,.65);
+  animation:scheduledSlideUp .5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes scheduledSlideUp{
+  from{ opacity:0; transform:translateY(16px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+.scheduled-alert-inner{
+  display:flex; align-items:flex-start; gap:16px;
+}
+.scheduled-alert-icon-box{
+  flex:0 0 38px; width:38px; height:38px; border-radius:50%;
+  background:rgba(57,224,102,.18); border:1.5px solid var(--verde);
+  display:flex; align-items:center; justify-content:center;
+}
+.scheduled-alert-content{ flex:1; }
+.scheduled-alert-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:21px; font-weight:800; color:var(--verde);
+  letter-spacing:.5px; text-transform:uppercase; margin-bottom:6px; line-height:1.2;
+}
+.scheduled-alert-desc{
+  font-size:14.5px; color:#ffffff; line-height:1.5; margin:0;
+}
+.scheduled-alert-desc strong{ color:var(--verde); }
+
+/* Animación pulsante llamativa para el botón de enviar tras agendar */
+@keyframes pulseHighlightGreen{
+  0%{
+    box-shadow:0 0 0 0 rgba(57,224,102,.85), 0 6px 20px rgba(57,224,102,.45);
+    transform:scale(1);
+  }
+  50%{
+    box-shadow:0 0 0 16px rgba(57,224,102,0), 0 12px 32px rgba(57,224,102,.75);
+    transform:scale(1.03);
+  }
+  100%{
+    box-shadow:0 0 0 0 rgba(57,224,102,0), 0 6px 20px rgba(57,224,102,.45);
+    transform:scale(1);
+  }
+}
+.pulse-highlight{
+  animation:pulseHighlightGreen 1.8s infinite ease-in-out !important;
+  background:var(--verde) !important;
+  color:#000000 !important;
+  border:2px solid #ffffff !important;
+  font-weight:900 !important;
+  letter-spacing:1px !important;
+}
 /* -- Pantalla de gracias -- */
 .thanks{ text-align:center; padding:30px 10px; animation:stepIn .5s ease both; }
 .thanks h2{ font-family:'Bebas Neue',sans-serif; font-size:56px; letter-spacing:2px; margin:14px 0 8px; }
@@ -695,18 +840,8 @@ input.invalid,select.invalid{
         <input type="text" id="actividad" name="actividad" placeholder="Ej: gimnasio, running, fútbol..." data-i18n-ph="ph_actividad">
       </div>
 
-      <div class="step-actions">
-        <button type="button" class="btn-secondary" data-prev><span class="arrow">←</span> <span data-i18n="btn_atras">Atrás</span></button>
-        <button type="button" class="btn-primary" data-next><span data-i18n="btn_seguir">Seguir</span> <span class="arrow">→</span></button>
-      </div>
-    </section>
-
-    <!-- ============ PASO 4 - SERVICIO + MOTIVACIÓN ============ -->
-    <section class="step" data-step="4" aria-labelledby="t-step4">
-      <h2 class="step-title" id="t-step4" data-i18n="s4_title">Ya casi lo tenemos</h2>
-      <p class="step-desc" data-i18n="s4_desc">Solo un par de detalles más para conocerte.</p>
-
-      <div class="field">
+      <!-- ============ CAMPO DE PROGRAMA (MOVIDO AL PASO 3) ============ -->
+      <div class="field" style="margin-top:24px;">
         <span class="field-label" data-i18n="lbl_programa">¿Estás interesado en un programa Online o Presencial? <span class="req">*</span></span>
         <div class="choice-row wrap" role="radiogroup" aria-label="Tipo de programa">
           <label class="chip"><input type="radio" name="programa" value="Online"><span data-i18n="opt_online">Online</span></label>
@@ -722,10 +857,80 @@ input.invalid,select.invalid{
       <div class="step-actions">
         <button type="button" class="btn-secondary" data-prev><span class="arrow">←</span> <span data-i18n="btn_atras">Atrás</span></button>
         <button type="submit" class="btn-primary" id="submitBtn">
-          <span class="btn-label" data-i18n="btn_enviar">Enviar</span>
+          <span class="btn-label" data-i18n="btn_enviar_agendar">ENVIAR Y AGENDAR</span>
           <span class="btn-spinner" aria-hidden="true"></span>
         </button>
       </div>
+    </section>
+
+    <!-- ============ PASO 4 - PANTALLA DE CONFIRMACIÓN Y AGENDAR LLAMADA (CALENDLY) ============ -->
+    <section class="step" data-step="4" aria-labelledby="t-step4">
+      <!-- Cabecera con animación de confirmación restaurada -->
+      <div class="thanks" style="padding:10px 10px 18px;">
+        <div class="thanks-check">
+          <svg viewBox="0 0 52 52" width="68" height="68" aria-hidden="true">
+            <circle class="tk-circle" cx="26" cy="26" r="24" fill="none"/>
+            <path class="tk-path" fill="none" d="M14 27 l8 8 l16 -18"/>
+          </svg>
+        </div>
+        <h2 data-i18n="thanks_title">¡Gracias!</h2>
+        <p data-i18n-html="thanks_text_custom" style="margin-bottom:8px; line-height:1.5;">Tu información ha sido recibida, pronto me pondré en contacto contigo o si lo prefieres agenda una llamada.</p>
+      </div>
+
+      <!-- ============ PREGUNTA AGENDAR LLAMADA ============ -->
+      <div class="field" style="margin-top:14px;">
+        <span class="field-label" data-i18n="lbl_agendar">¿Quieres agendar ahora tu llamada de valoración para fecha y hora determinada?</span>
+        <div class="choice-row agendar-chips" role="radiogroup" aria-label="Agendar llamada">
+          <label class="chip">
+            <input type="radio" name="quiere_agendar" value="Si" id="optAgendarSi" checked>
+            <span data-i18n="opt_agendar_si">Sí, agendar ahora</span>
+          </label>
+          <label class="chip">
+            <input type="radio" name="quiere_agendar" value="No" id="optAgendarNo">
+            <span data-i18n="opt_agendar_no">Por ahora no</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Contenedor interactivo de Calendly (visible por defecto) -->
+      <div id="calendlyContainer" class="calendly-box">
+        <div class="calendly-top-bar">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--verde)" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span style="font-size:14px; font-weight:600; color:var(--verde); letter-spacing:.3px;" data-i18n="calendly_tip">Elige el día y la hora que mejor te vengan:</span>
+        </div>
+        <iframe id="calendlyIframe" src="" width="100%" height="980" frameborder="0" scrolling="no" title="Calendly - IDAROME FIT"></iframe>
+      </div>
+
+      <!-- Opción de volver a la web también accesible al pie de Calendly -->
+      <div id="calendlyBackAction" style="margin-top:20px; text-align:center;">
+        <a class="btn-secondary" href="https://idaromefit.com" data-i18n="btn_volver_web" style="display:inline-flex;">Volver a la web</a>
+      </div>
+
+      <!-- Alerta de cita reservada en Calendly con éxito -->
+      <div id="calendlyBookedAlert" class="calendly-scheduled-alert" style="display:none;" role="alert">
+        <div class="scheduled-alert-inner">
+          <div class="scheduled-alert-icon-box">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--verde)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+          <div class="scheduled-alert-content">
+            <h4 class="scheduled-alert-title" data-i18n="cal_booked_title">¡Cita confirmada en el calendario!</h4>
+            <p class="scheduled-alert-desc" data-i18n-html="cal_booked_desc">Tu videollamada de valoración de 30 minutos ha quedado reservada con éxito. ¡Nos vemos pronto!</p>
+          </div>
+        </div>
+        <div style="margin-top:20px; text-align:center;">
+          <a class="btn-primary" href="https://idaromefit.com" data-i18n="btn_volver_web" style="display:inline-flex;">Volver a la web</a>
+        </div>
+      </div>
+
+      <!-- Mensaje cuando elige "Por ahora no" -->
+      <div id="noAgendarMsgBox" style="display:none; margin-top:20px; padding:24px 20px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.15); border-radius:12px; text-align:center;">
+        <p style="font-size:16px; color:#ffffff; margin-bottom:18px; line-height:1.5;" data-i18n="cal_opt_no_msg">¡Perfecto! Nos pondremos en contacto contigo muy pronto por teléfono o WhatsApp para coordinar tu valoración.</p>
+        <a class="btn-primary" href="https://idaromefit.com" data-i18n="btn_volver_web" style="display:inline-flex;">Volver a la web</a>
+      </div>
+
     </section>
 
   </form>
@@ -970,8 +1175,8 @@ input.invalid,select.invalid{
       obj_9: 'Ayuda nutricional con alguna enfermedad que padezco',
       obj_10: 'Aprender a comer de forma saludable',
       /* Paso 3 */
-      s3_title: 'Deporte y actividad',
-      s3_desc: 'Hablemos de tu relación con el ejercicio.',
+      s3_title: 'Deporte, actividad y programa',
+      s3_desc: 'Hablemos de tu relación con el ejercicio y el servicio que buscas.',
       lbl_deporte: '¿Practicas deporte? <span class="req">*</span>',
       opt_si: 'Sí',
       opt_no: 'No',
@@ -979,13 +1184,23 @@ input.invalid,select.invalid{
       ph_durante: 'Ej: 2 años, 6 meses...',
       lbl_actividad: '¿Qué deporte o actividad física realizas?',
       ph_actividad: 'Ej: gimnasio, running, fútbol...',
-      /* Paso 4 */
-      s4_title: 'Ya casi lo tenemos',
-      s4_desc: 'Solo un par de detalles más para conocerte.',
       lbl_programa: '¿Estás interesado en un programa Online o Presencial? <span class="req">*</span>',
       opt_online: 'Online',
       opt_presencial: 'Presencial',
       opt_nolose: 'No lo sé',
+      btn_enviar_agendar: 'ENVIAR Y AGENDAR',
+      /* Paso 4 - Agendar llamada (Post-envío) */
+      s4_title: '¡Cuestionario Enviado con Éxito!',
+      s4_desc: 'Hemos recibido tus datos correctamente. Ahora puedes reservar directamente tu videollamada de valoración gratuita de 30 minutos:',
+      thanks_text_custom: 'Tu información ha sido recibida, pronto me pondré en contacto contigo o si lo prefieres agenda una llamada.',
+      lbl_agendar: '¿Quieres agendar ahora tu llamada de valoración para fecha y hora determinada?',
+      opt_agendar_si: 'Sí, agendar ahora',
+      opt_agendar_no: 'Por ahora no',
+      calendly_tip: 'Elige el día y la hora que mejor te vengan:',
+      cal_booked_title: '¡Cita confirmada en el calendario!',
+      cal_booked_desc: 'Tu videollamada de valoración de 30 minutos ha quedado reservada con éxito. ¡Nos vemos pronto!',
+      cal_opt_no_msg: '¡Perfecto! Nos pondremos en contacto contigo muy pronto por teléfono o WhatsApp para coordinar tu valoración.',
+      btn_volver_web: 'Volver a la web',
       /* Botones */
       btn_seguir: 'Seguir',
       btn_atras: 'Atrás',
@@ -993,6 +1208,8 @@ input.invalid,select.invalid{
       /* Gracias */
       thanks_title: '¡Gracias!',
       thanks_text: 'Tu información se ha enviado correctamente. <br>Me pondré en contacto contigo muy pronto.',
+      thanks_scheduled_title: '¡Cita y formulario confirmados!',
+      thanks_scheduled_text: 'Hemos recibido tus datos y tu videollamada de 30 minutos ha quedado reservada en el calendario. <br>¡Nos vemos pronto!',
       thanks_btn: 'Volver a la web',
       /* Pie */
       foot_role: 'ENTRENADOR &amp; TSD &nbsp;&mdash;&nbsp; ESPECIALISTA EN SALUD LUMBAR',
@@ -1038,8 +1255,8 @@ input.invalid,select.invalid{
       obj_9: 'Nutritional support for a specific health condition',
       obj_10: 'Build sustainable, healthy eating habits',
       /* Step 3 */
-      s3_title: 'Exercise & Activity',
-      s3_desc: 'Tell me about your current relationship with physical activity.',
+      s3_title: 'Exercise, Activity & Program',
+      s3_desc: 'Tell me about your background with exercise and the program you are interested in.',
       lbl_deporte: 'Do you regularly exercise or play sports? <span class="req">*</span>',
       opt_si: 'Yes',
       opt_no: 'No',
@@ -1047,13 +1264,23 @@ input.invalid,select.invalid{
       ph_durante: 'E.g., 2 years, 6 months...',
       lbl_actividad: 'What type of sport or physical activity do you practice?',
       ph_actividad: 'E.g., gym, running, football, swimming...',
-      /* Step 4 */
-      s4_title: 'Almost There',
-      s4_desc: 'Just a couple final details to complete your profile.',
       lbl_programa: 'Are you interested in an Online or In-Person program? <span class="req">*</span>',
       opt_online: 'Online',
       opt_presencial: 'In-Person',
       opt_nolose: 'Not sure yet',
+      btn_enviar_agendar: 'SUBMIT & SCHEDULE',
+      /* Step 4 - Schedule call (Post-submit) */
+      s4_title: 'Questionnaire Submitted Successfully!',
+      s4_desc: 'We have received your application. You can now directly schedule your free 30-minute consultation call:',
+      thanks_text_custom: 'Your information has been received. I will get in touch with you shortly, or if you prefer, you can schedule a call below.',
+      lbl_agendar: 'Would you like to schedule your call for a specific date and time now?',
+      opt_agendar_si: 'Yes, schedule now',
+      opt_agendar_no: 'Not now',
+      calendly_tip: 'Select the date and time that suits you best:',
+      cal_booked_title: 'Appointment confirmed on the calendar!',
+      cal_booked_desc: 'Your 30-minute consultation call is confirmed. You will receive an email with the video conference details. Speak soon!',
+      cal_opt_no_msg: 'All set! We will contact you shortly via phone or WhatsApp to coordinate your consultation.',
+      btn_volver_web: 'Back to website',
       /* Buttons */
       btn_seguir: 'Continue',
       btn_atras: 'Back',
@@ -1061,6 +1288,8 @@ input.invalid,select.invalid{
       /* Thanks */
       thanks_title: 'Thank you!',
       thanks_text: 'Your application has been sent successfully. <br>I will get in touch with you very shortly.',
+      thanks_scheduled_title: 'Appointment & application confirmed!',
+      thanks_scheduled_text: 'We have received your details and your 30-minute consultation call is confirmed on the calendar. <br>Speak soon!',
       thanks_btn: 'Back to website',
       /* Footer */
       foot_role: 'PERSONAL TRAINER &amp; REGISTERED DIETITIAN &nbsp;&mdash;&nbsp; LOWER BACK HEALTH SPECIALIST',
@@ -1146,6 +1375,7 @@ input.invalid,select.invalid{
   });
 
   /* ---------- Navegación entre pasos ---------- */
+  /* ---------- Navegación entre pasos ---------- */
   function showStep(index, dir) {
     var prevStep = steps[current];
     var nextStep = steps[index];
@@ -1155,7 +1385,27 @@ input.invalid,select.invalid{
     }
     nextStep.classList.add('is-active');
     current = index;
-    updateProgress();
+
+    var progWrap = document.querySelector('.progress-wrap');
+    var headTag  = document.getElementById('headTag');
+    if (nextStep && nextStep.dataset.step === '4') {
+      if (progWrap) progWrap.style.display = 'none';
+      if (headTag) headTag.style.display = 'none';
+      // Reiniciar animación del SVG de confirmación
+      var tkSvg = nextStep.querySelector('.thanks-check svg');
+      if (tkSvg) {
+        var clone = tkSvg.cloneNode(true);
+        tkSvg.parentNode.replaceChild(clone, tkSvg);
+      }
+      if (typeof updateCalendlySrc === 'function') {
+        updateCalendlySrc();
+      }
+    } else {
+      if (progWrap) progWrap.style.display = 'block';
+      if (headTag) headTag.style.display = 'inline-block';
+      updateProgress();
+    }
+
     // Llevar el foco al primer campo accesible del paso
     var focusable = nextStep.querySelector('input,select,button');
     if (focusable) setTimeout(function(){ focusable.focus({preventScroll:true}); }, 60);
@@ -1163,16 +1413,26 @@ input.invalid,select.invalid{
   }
 
   function updateProgress() {
-    var pct = Math.round(((current + 1) / total) * 100);
+    // Calculamos el progreso sobre los 3 pasos de recogida de datos
+    var questionnaireSteps = 3;
+    var stepIndex = Math.min(current + 1, questionnaireSteps);
+    var pct = Math.round((stepIndex / questionnaireSteps) * 100);
     bar.style.width = pct + '%';
     stepLabel.textContent = t('progress_step')
-      .replace('{n}', current + 1)
-      .replace('{total}', total);
+      .replace('{n}', stepIndex)
+      .replace('{total}', questionnaireSteps);
     stepPercent.textContent = pct + '%';
   }
 
   /* ---------- Validación ---------- */
+  var VALIDACION_ACTIVA = false;
+
   function validateStep(stepEl) {
+    if (!VALIDACION_ACTIVA) {
+      clearErrors(stepEl);
+      return true;
+    }
+
     var ok = true;
     clearErrors(stepEl);
 
@@ -1217,8 +1477,6 @@ input.invalid,select.invalid{
         showError(stepEl, 'deporte', t('err_choose'));
         ok = false;
       }
-    }
-    if (stepEl.dataset.step === '4') {
       if (radioGroups.programa === false) {
         showError(stepEl, 'programa', t('err_choose'));
         ok = false;
@@ -1270,7 +1528,75 @@ input.invalid,select.invalid{
     }
   });
 
-  /* ---------- Envío ---------- */
+  /* ---------- Lógica interactiva de Calendly ---------- */
+  var optAgendarSi    = document.getElementById('optAgendarSi');
+  var optAgendarNo    = document.getElementById('optAgendarNo');
+  var calWrap         = document.getElementById('calendlyContainer');
+  var calIframe       = document.getElementById('calendlyIframe');
+  var calBookedAlert  = document.getElementById('calendlyBookedAlert');
+  var noAgendarMsgBox = document.getElementById('noAgendarMsgBox');
+
+  function updateCalendlySrc() {
+    if (!calIframe) return;
+    var nom = (document.getElementById('nombre') ? document.getElementById('nombre').value : '').trim();
+    var ape = (document.getElementById('apellidos') ? document.getElementById('apellidos').value : '').trim();
+    var fullName = nom + (ape ? ' ' + ape : '');
+    var em = (document.getElementById('email') ? document.getElementById('email').value : '').trim();
+
+    var baseUrl = 'https://calendly.com/idaromenutricion/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=000000&text_color=ffffff&primary_color=39e066';
+    if (fullName) {
+      baseUrl += '&name=' + encodeURIComponent(fullName);
+      baseUrl += '&first_name=' + encodeURIComponent(nom);
+      if (ape) baseUrl += '&last_name=' + encodeURIComponent(ape);
+    }
+    if (em) baseUrl += '&email=' + encodeURIComponent(em);
+
+    if (calIframe.getAttribute('data-loaded-src') !== baseUrl) {
+      calIframe.src = baseUrl;
+      calIframe.setAttribute('data-loaded-src', baseUrl);
+    }
+  }
+
+  function handleAgendarChange() {
+    var calBackAction = document.getElementById('calendlyBackAction');
+    if (optAgendarSi && optAgendarSi.checked) {
+      if (calBookedAlert && calBookedAlert.style.display === 'block') {
+        if (calWrap) calWrap.style.display = 'none';
+        if (calBackAction) calBackAction.style.display = 'none';
+      } else {
+        if (calWrap) calWrap.style.display = 'block';
+        if (calBackAction) calBackAction.style.display = 'block';
+      }
+      if (noAgendarMsgBox) noAgendarMsgBox.style.display = 'none';
+      updateCalendlySrc();
+      setTimeout(function () {
+        if (calWrap) calWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    } else {
+      if (calWrap) calWrap.style.display = 'none';
+      if (calBackAction) calBackAction.style.display = 'none';
+      if (calBookedAlert) calBookedAlert.style.display = 'none';
+      if (noAgendarMsgBox) noAgendarMsgBox.style.display = 'block';
+    }
+  }
+
+  if (optAgendarSi) optAgendarSi.addEventListener('change', handleAgendarChange);
+  if (optAgendarNo) optAgendarNo.addEventListener('change', handleAgendarChange);
+
+  // Detectar cuando el usuario finaliza la reserva dentro del iframe de Calendly
+  window.addEventListener('message', function (e) {
+    if (e.data && e.data.event === 'calendly.event_scheduled') {
+      var calBackAction = document.getElementById('calendlyBackAction');
+      if (calWrap) calWrap.style.display = 'none';
+      if (calBackAction) calBackAction.style.display = 'none';
+      if (calBookedAlert) {
+        calBookedAlert.style.display = 'block';
+        calBookedAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  });
+
+  /* ---------- Envío del cuestionario en Paso 3 ---------- */
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -1299,84 +1625,42 @@ input.invalid,select.invalid{
     var objetivos = raw.getAll('objetivos').join(', ');
     data.append('Objetivos', objetivos);
 
-    // 3. Deporte (antes practica y tiempo)
+    // 3. Deporte
     data.append('Deporte', raw.get('deporte') || '');
     data.append('Durante', raw.get('durante') || '');
     data.append('Actividad', raw.get('actividad') || '');
 
-    // 4. Programa (antes servicio)
+    // 4. Programa
     data.append('Programa', raw.get('programa') || '');
 
     // Campos de configuración para FormSubmit
     data.append('_subject', 'Nuevo contacto IDAROME FIT - ' + (raw.get('nombre') || ''));
     data.append('_template', 'table');
     data.append('_captcha', 'false');
-    data.append('_next', 'https://www.idaromefit.com/form');
 
-    // Intento 1: AJAX (requiere activación previa de FormSubmit)
+    // Envío por AJAX a FormSubmit (se ejecuta en segundo plano)
     fetch(ENDPOINT, {
       method: 'POST',
       body: data,
       headers: { 'Accept': 'application/json' }
     })
     .then(function (r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.json();
-    })
-    .then(function (json) {
-      if (json && json.success === 'false') throw new Error('FormSubmit rejected');
-      success();
+      console.log('Cuestionario registrado en FormSubmit:', r.status);
     })
     .catch(function (err) {
-      console.warn('AJAX falló (' + err.message + '). Usando envío nativo...');
-      // Intento 2: POST nativo — siempre funciona, redirige a FormSubmit
-      submitNative(data);
+      console.warn('FormSubmit notice:', err.message);
     })
-    .finally(function () { submitBtn.classList.remove('is-loading'); });
-  });
-
-  function submitNative(data) {
-    var nativeForm = document.createElement('form');
-    nativeForm.method = 'POST';
-    nativeForm.action = 'https://formsubmit.co/info@idaromefit.com';
-    nativeForm.style.display = 'none';
-    nativeForm.enctype = 'multipart/form-data';
-
-    // Copiar todos los campos del FormData al formulario nativo
-    var entries = [];
-    data.forEach(function(val, key) { entries.push([key, val]); });
-    entries.forEach(function(pair) {
-      var input = document.createElement('input');
-      input.type = 'hidden';
-      input.name = pair[0];
-      input.value = pair[1];
-      nativeForm.appendChild(input);
+    .finally(function () {
+      submitBtn.classList.remove('is-loading');
+      // Transición inmediata a Paso 4 (pantalla de agendamiento)
+      showStep(3, 1);
     });
-
-    // Campos extra FormSubmit
-    var nextInput = document.createElement('input');
-    nextInput.type = 'hidden';
-    nextInput.name = '_next';
-    nextInput.value = 'https://www.idaromefit.com/form';
-    nativeForm.appendChild(nextInput);
-
-    document.body.appendChild(nativeForm);
-    nativeForm.submit();
-  }
-
-  function success() {
-    form.hidden = true;
-    document.querySelector('.progress-wrap').style.display = 'none';
-    var headTag = document.getElementById('headTag');
-    if (headTag) headTag.style.display = 'none';
-    thanks.hidden = false;
-    thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
+  });
 
   /* ---------- Enter avanza de paso (excepto en el último) ---------- */
   form.addEventListener('keydown', function (e) {
     if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
-      if (current < total - 1) {
+      if (current < 2) {
         e.preventDefault();
         if (validateStep(steps[current])) showStep(current + 1, 1);
       }
